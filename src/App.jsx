@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./AppStyles.css";
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes } from "react-router";
+import { API_URL } from "./shared";
 
 const App = () => {
   return (
