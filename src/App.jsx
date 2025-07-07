@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import "./AppStyles.css";
 import NavBar from "./components/NavBar";
+import AddUser from "./components/AddUser";
 import { BrowserRouter as Router, Routes } from "react-router";
 import { API_URL } from "./shared";
 
@@ -9,12 +10,9 @@ const App = () => {
   return (
     <div>
       <NavBar />
-      <div className="app">
-        <h1>Hello React!</h1>
-        <img className="react-logo" src="/react-logo.svg" alt="React Logo" />
+      <AddUser />
+      <Routes>{/* Currently, we don't have any routes defined */}</Routes>
 
-        <Routes>{/* Currently, we don't have any routes defined */}</Routes>
-      </div>
     </div>
   );
 };
