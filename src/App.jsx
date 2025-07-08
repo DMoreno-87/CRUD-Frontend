@@ -7,15 +7,21 @@ import { BrowserRouter as Router, Routes } from "react-router";
 import { API_URL } from "./shared";
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
   return (
     <div>
-      <NavBar />
-      <AddUser />
-      <Routes>{/* Currently, we don't have any routes defined */}</Routes>
-
+      <NavBar user={user} />
+      <Routes>
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/logout" element={<Logout setUser={setUser} />} />
+        <Route path="/signup" element={<AddUser setUser={setUser} />} />
+        
+      </Routes>
     </div>
   );
 };
+
 
 // We're using React Router to handle the navigation between pages.
 // It's important that the Router is at the top level of our app,
