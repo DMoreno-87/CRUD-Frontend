@@ -11,8 +11,8 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/auth/login', { username, password }, { withCredentials: true });
-      const me = await axios.get('/auth/me', { withCredentials: true });
+      const res = await axios.post('http://localhost:8080/auth/login', { username, password }, { withCredentials: true });
+      const me = await axios.get('http://localhost:8080/auth/me', { withCredentials: true });
       setUser(me.data);
       navigate('/');
     } catch (err) {

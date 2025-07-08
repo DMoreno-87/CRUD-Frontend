@@ -10,13 +10,12 @@ import { API_URL } from "./shared";
 
 const App = () => {
   const [user, setUser] = useState(null); // 
-
+ console.log("Before user--->", user);
   return (
     <div>
-      <NavBar user={user} />
+      <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/logout" element={<Logout setUser={setUser} />} />
         <Route path="/signup" element={<AddUser setUser={setUser} />} />
       </Routes>
     </div>
