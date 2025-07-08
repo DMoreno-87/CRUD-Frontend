@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import axios from 'axios'; // ✅ Fix import
+import React, { useState } from "react";
+import axios from "axios"; // ✅ Fix import
 
 const AddUser = () => {
   const [form, setForm] = useState({
-    userName: '',
-    passwordHash: '',
+    username: "",
+    password: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:8080/auth/signup', form); 
-      console.log('Signup successful');
+      await axios.post("http://localhost:8080/auth/signup", form);
+      console.log("Signup successful");
     } catch (error) {
-      console.error('Failed to sign up:', error);
+      console.error("Failed to sign up:", error);
     }
 
     setForm({
-      userName: '',
-      passwordHash: '',
+      username: "",
+      password: "",
     });
   };
 
@@ -30,8 +30,8 @@ const AddUser = () => {
         <label>Username:</label>
         <input
           type="text"
-          name="userName"
-          value={form.userName}
+          name="username"
+          value={form.username}
           onChange={(e) =>
             setForm({ ...form, [e.target.name]: e.target.value })
           }
@@ -39,9 +39,9 @@ const AddUser = () => {
         />
         <label>Password:</label>
         <input
-          type="password" 
-          name="passwordHash" 
-          value={form.passwordHash}
+          type="password"
+          name="password"
+          value={form.password}
           onChange={(e) =>
             setForm({ ...form, [e.target.name]: e.target.value })
           }
