@@ -16,3 +16,4 @@ const handleLogout = async () => {
         setError('Logout Unsuccessful');
     }
 };
+export default Logout;
