@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./AppStyles.css";
 import NavBar from "./components/NavBar";
 import AddUser from "./components/AddUser";
-import { BrowserRouter as Router, Routes } from "react-router";
+import Login from "./components/Login"; // 
+import Logout from "./components/Logout"; // 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 import { API_URL } from "./shared";
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // 
 
   return (
     <div>
@@ -16,17 +18,11 @@ const App = () => {
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/logout" element={<Logout setUser={setUser} />} />
         <Route path="/signup" element={<AddUser setUser={setUser} />} />
-        
       </Routes>
     </div>
   );
 };
 
-
-// We're using React Router to handle the navigation between pages.
-// It's important that the Router is at the top level of our app,
-// and that we wrap our entire app in it. With this in place, we can
-// declare Routes, Links, and use useful hooks like useNavigate.
 const root = createRoot(document.getElementById("root"));
 root.render(
   <Router>
